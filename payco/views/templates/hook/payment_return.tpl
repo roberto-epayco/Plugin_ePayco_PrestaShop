@@ -160,8 +160,8 @@
             data-epayco-description="ORDEN DE COMPRA # {$refVenta|escape:'htmlall':'UTF-8'}"
             data-epayco-currency="{$currency|lower|escape:'htmlall':'UTF-8'}"
             data-epayco-country="co"
-            data-epayco-test="{$merchanttest}",
-            data-epayco-invoice="{$refVenta|unescape: 'html' nofilter}",
+            data-epayco-test="{$merchanttest}"
+            data-epayco-invoice="{$refVenta|unescape: 'html' nofilter}"
             data-epayco-external="false"
             data-epayco-extra1="{$extra1}"
             data-epayco-extra2="{$extra2}"
