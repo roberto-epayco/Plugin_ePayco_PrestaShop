@@ -903,8 +903,6 @@ class Payco extends PaymentModule
 
             if($confirmation){
                 header("HTTP/1.1 200 OK");
-                echo $state;
-                die();
             }else{
 
                 if(Configuration::get('P_URL_RESPONSE') != Context::getContext()->link->getModuleLink('payco', 'response'))
