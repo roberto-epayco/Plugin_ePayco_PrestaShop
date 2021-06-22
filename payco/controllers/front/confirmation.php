@@ -24,26 +24,40 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-class PaycoReturnModuleFrontController extends ModuleFrontController
+class PaycoConfirmationModuleFrontController extends ModuleFrontController
 {
 
-	/**
-	 * @see FrontController::postProcess()
-	*/
-	public function postProcess()
-	{
-		$payco = new Payco();
+ 	public $ssl = true;
+    public $display_column_left = false;
+    public $display_column_right = false;
+
+    public function initContent()
+    { 
+	    
+	    parent::initContent();	
+	   
+    }
+
+    public function postProcess(){
+
+    	$payco = new Payco();
+
 		if (isset($_REQUEST['x_cod_response']))
 		{	
-			$extra1=$_REQUEST['x_extra1'];
-			$response=$_REQUEST['x_cod_response'];
-			$referencia=$_REQUEST['x_ref_payco'];
-			$transid=$_REQUEST['x_transaction_id'];
-			$amount=$_REQUEST['x_amount'];
-			$currency=$_REQUEST['x_currency_code'];
-			$signature=$_REQUEST['x_signature'];
-		    $payco->PaymentSuccess($extra1,$response,$referencia,$transid,$amount,$currency,$signature);		
+			$extra1=trim($_REQUEST['x_extra1']);
+			$response=trim($_REQUEST['x_cod_response']);
+			$referencia=trim($_REQUEST['x_ref_payco']);
+			$transid=trim($_REQUEST['x_transaction_id']);
+			$amount=trim($_REQUEST['x_amount']);
+			$currency=trim($_REQUEST['x_currency_code']);
+			$signature=trim($_REQUEST['x_signature']);
+			$confirmation=true;
+		    $payco->PaymentSuccess($extra1,$response,$referencia,$transid,$amount,$currency,$signature, $confirmation);
+		}else{
+			
 		}
-	}
 
+    }
 }
+
+

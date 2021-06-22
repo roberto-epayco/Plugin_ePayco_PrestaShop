@@ -25,5 +25,5 @@
 *}
 
 <section>
-  <p>{l s='El onPage Checkout de ePayco, simplifica y asegura el procesamiento de pagos en línea. ' mod='payco'}</p>
+	<p>{$titulo|escape:'htmlall':'UTF-8'}</p>
 </section>
